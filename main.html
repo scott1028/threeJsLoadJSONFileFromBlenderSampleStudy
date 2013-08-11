@@ -40,16 +40,35 @@
 		// scene.add( cube );
 
 		var loader=new THREE.JSONLoader();
-		loader.load( "knight.js", function( geometry ) {
-		// loader.load( "female.js", function( geometry ) {
-			window.mesh = new THREE.Mesh( geometry );
-			mesh.scale.set(.4, .4, .4);
-			// window.mesh = new THREE.Mesh( geometry, material );
-			// mesh.scale.set(.03, .03, .03);
-			mesh.position.set(0, -2, 0);
-			scene.add(mesh);
-		});
 
+		var obj=3
+		switch(obj){
+			case 1:
+				loader.load( "knight.js", function( geometry ) {
+					window.mesh = new THREE.Mesh( geometry, material );
+					mesh.scale.set(.3, .3, .3);
+					mesh.position.set(0, -2, 0);
+					scene.add(mesh);
+				});
+				break;
+			case 2:
+				loader.load( "female.js", function( geometry ) {
+					window.mesh = new THREE.Mesh( geometry, material );
+					mesh.scale.set(.03, .03, .03);
+					mesh.position.set(0, -2, 0);
+					scene.add(mesh);
+				});
+				break;
+			case 3:
+				loader.load( "cube.js", function( geometry ) {
+					window.mesh = new THREE.Mesh( geometry, material );
+					mesh.scale.set(1, 1, 1);
+					mesh.position.set(0, -2, 0);
+					scene.add(mesh);
+				});
+				break;
+		}		
+		
 		// // 加入環境光
 		var ambientLight = new THREE.AmbientLight(0x555555);
 		scene.add(ambientLight);
