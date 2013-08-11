@@ -27,7 +27,7 @@
 		// var geometry = new THREE.CubeGeometry(2,2,2);									// 建立幾何物件
 		// var geometry = new THREE.SphereGeometry(1, 10, 10);								// 建立幾何物件
 		// var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );				// 純色材質
-		var material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );				// 純色材質
+		// var material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );				// 純色材質
 		// var material = new THREE.MeshLambertMaterial({
 			// map: THREE.ImageUtils.loadTexture("/ThreeJS_Study/material.jpg")
 			// map: THREE.ImageUtils.loadTexture("/ThreeJS_Study/sphere.jpg"),
@@ -41,7 +41,7 @@
 
 		var loader=new THREE.JSONLoader();
 
-		var obj=3
+		var obj=4
 		switch(obj){
 			case 1:
 				loader.load( "knight.js", function( geometry ) {
@@ -51,7 +51,7 @@
 					scene.add(mesh);
 				});
 				break;
-			case 2:
+			case 2: /*From Google SketchUp Lib*/
 				loader.load( "female.js", function( geometry ) {
 					window.mesh = new THREE.Mesh( geometry, material );
 					mesh.scale.set(.03, .03, .03);
@@ -64,6 +64,15 @@
 					window.mesh = new THREE.Mesh( geometry, material );
 					mesh.scale.set(1, 1, 1);
 					mesh.position.set(0, -2, 0);
+					scene.add(mesh);
+				});
+				break;
+			case 4: /*From ZBrush to Blender to ThreeJS*/ 
+				loader.load( "animal.js", function( geometry ) {
+					window.mesh = new THREE.Mesh( geometry );
+					// window.mesh = new THREE.Mesh( geometry, material );
+					mesh.scale.set(2, 2, 2);
+					mesh.position.set(0, 0, 0);
 					scene.add(mesh);
 				});
 				break;
